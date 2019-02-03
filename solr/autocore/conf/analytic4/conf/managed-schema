@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="test" version="1.6">
+  <uniqueKey>id</uniqueKey>
+  <fieldType name="nametext" class="solr.TextField">
+    <analyzer class="org.apache.lucene.analysis.core.WhitespaceAnalyzer"/>
+  </fieldType>
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+  <fieldType name="text" class="solr.TextField">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.StopFilterFactory"/>
+      <filter class="solr.PorterStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <field name="id" type="string" multiValued="false" indexed="true" required="false" stored="true"/>
+  <field name="name" type="nametext" indexed="true" stored="true"/>
+  <field name="subject" type="text" indexed="true" stored="true"/>
+  <dynamicField name="subject_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="name_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="*_sm" type="string" multiValued="true" indexed="true" stored="true"/>
+  <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+</schema>

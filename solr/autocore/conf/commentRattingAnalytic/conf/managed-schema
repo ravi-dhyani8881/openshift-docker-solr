@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="test" version="1.6">
+  <uniqueKey>contentId</uniqueKey>
+  <fieldType name="nametext" class="solr.TextField">
+    <analyzer class="org.apache.lucene.analysis.core.WhitespaceAnalyzer"/>
+  </fieldType>
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+  <fieldType name="text" class="solr.TextField">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.StopFilterFactory"/>
+      <filter class="solr.PorterStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <field name="contentId" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="ratting1" type="string" indexed="true" stored="true"/>
+  <field name="ratting2" type="string" indexed="true" stored="true"/>
+  <field name="ratting3" type="string" indexed="true" stored="true"/>
+  <field name="ratting4" type="string" indexed="true" stored="true"/>
+  <field name="ratting5" type="string" indexed="true" stored="true"/>
+  <field name="rattingCount" type="string" indexed="true" stored="true"/>
+  <dynamicField name="rattingCount_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="contentId_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="ratting5_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="ratting4_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="ratting3_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="ratting2_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="ratting1_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="*_sm" type="string" multiValued="true" indexed="true" stored="true"/>
+  <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+</schema>

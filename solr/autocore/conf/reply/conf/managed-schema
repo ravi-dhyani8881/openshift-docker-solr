@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="test" version="1.6">
+  <uniqueKey>replyId</uniqueKey>
+  <fieldType name="nametext" class="solr.TextField">
+    <analyzer class="org.apache.lucene.analysis.core.WhitespaceAnalyzer"/>
+  </fieldType>
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+  <fieldType name="text" class="solr.TextField">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.StopFilterFactory"/>
+      <filter class="solr.PorterStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <field name="contentId" type="string" indexed="true" stored="true"/>
+  <field name="replyBody" type="string" indexed="true" stored="true"/>
+  <field name="replyHeading" type="string" indexed="true" stored="true"/>
+  <field name="replyId" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="reviewId" type="string" indexed="true" stored="true"/>
+  <field name="userId" type="string" indexed="true" stored="true"/>
+  <dynamicField name="replyHeading_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="contentId_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="replyBody_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="reviewId_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="userId_*" type="string" indexed="true" stored="false"/>
+  <dynamicField name="*_sm" type="string" multiValued="true" indexed="true" stored="true"/>
+  <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+</schema>
